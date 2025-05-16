@@ -1,0 +1,26 @@
+{
+  "name": "@brodsolutions/bulk-order-chart",
+  "version": "1.0.0",
+  "description": "Handles the root functionality of the bulk order chart on Bigcommerce product pages",
+  "keywords": [
+    "bigcommerce",
+    "bulk order chart",
+    "products",
+    "add to cart"
+  ],
+  "homepage": "https://github.com/BrodSolutionsDev/bigcommerce-bulk-order-chart#readme",
+  "bugs": {
+    "url": "https://github.com/BrodSolutionsDev/bigcommerce-bulk-order-chart/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrodSolutionsDev/bigcommerce-bulk-order-chart.git"
+  },
+  "license": "ISC",
+  "author": "Brod Solutions",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
