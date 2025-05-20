@@ -46,13 +46,27 @@ export class BulkOrderChart {
 		this.HMTLElements().showBulkChartCheckbox.addEventListener('change', () => {
 			const variantToHide = document.querySelector(
 				`[name="attribute[${option.id}]"]`
-			)?.parentElement;
+			)?.closest(".form-field") as HTMLDivElement;
 			if (!variantToHide) {
 				throw new Error(
 					`Could not find the variant element with a name "attribute[${option.id}]".`
 				);
 			}
 			variantToHide.style.display = 'none';
+			const firstVariantOption = variantToHide.querySelector("[name]") as HTMLInputElement | HTMLSelectElement;
+			
+			switch(firstVariantOption.type) {
+				case 'radio':
+					firstVariantOption.setAttribute("checked", "");
+					break;
+				case 'select-one':
+					firstVariantOption.lastElementChild!.setAttribute("selected", "");
+					break;
+				default:
+					throw new Error('Invalid input type');
+			}
+
+
 			this.HMTLElements().quantitySelection.style.display = 'none';
 			const checkboxWrapper = this.HMTLElements().showBulkChartCheckbox.closest(
 				'.form-field'
@@ -314,7 +328,7 @@ export class BulkOrderChart {
 
 	private getBulkChartVariantOptions(): IProduct['option'] {
 		let options = this.context.product.options.filter(
-			option => option.display_name === this.config.variant
+			option => option.display_name.toLowerCase() === this.config.variant.toLowerCase()
 		)[0];
 		if (!options) {
 			options = this.context.product.options[0];
