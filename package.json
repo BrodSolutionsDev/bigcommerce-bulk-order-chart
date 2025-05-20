@@ -1,6 +1,6 @@
 {
   "name": "@brodsolutions/bulk-order-chart",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Handles the root functionality of the bulk order chart on Bigcommerce product pages",
   "keywords": [
     "bigcommerce",
@@ -19,8 +19,20 @@
   "license": "ISC",
   "author": "Brod Solutions",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "build:watch": "tsc -w"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@bigcommerce/stencil-utils": "^6.x"
   }
 }
